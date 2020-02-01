@@ -8,11 +8,13 @@ const API_KEY = "6051da97b1c1968c8cfe8dbf5d7f91d3";
 
 class App extends React.Component {
   state = {
-    temperature: undefined,
     city: undefined,
     country: undefined,
-    humidity: undefined,
     description: undefined,
+    icon: undefined,
+    temperature: undefined,
+    humidity: undefined,
+    speed: undefined,
     error: undefined
   }
   getWeather = async (e) => {
@@ -21,24 +23,28 @@ class App extends React.Component {
     const country = e.target.elements.country.value;
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`);
     const data = await api_call.json();
+    const iconcode = data.weather[0].icon;
+    const iconUrl = `http://openweathermap.org/img/wn/${iconcode}@2x.png`;
     if (city && country) {
       this.setState({
-        temperature: data.main.temp,
         city: data.name,
         country: data.sys.country,
-        humidity: data.main.humidity,
         description: data.weather[0].description,
-        // icon: data.weather[0].icon,
+        icon: iconUrl,
+        temperature: data.main.temp,
+        humidity: data.main.humidity,
+        speed: data.wind.speed,
         error: ""
       });
     } else {
       this.setState({
-        temperature: undefined,
         city: undefined,
         country: undefined,
-        humidity: undefined,
         description: undefined,
-        // icon: undefined,
+        icon: undefined,
+        temperature: undefined,
+        humidity: undefined,
+        speed: undefined,
         error: "Please enter the value."
       });
     }
@@ -57,12 +63,13 @@ class App extends React.Component {
                 <div className="col-7 form-container">
                   <Form getWeather={this.getWeather} />
                   <Weather
-                    temperature={this.state.temperature}
                     city={this.state.city}
                     country={this.state.country}
-                    humidity={this.state.humidity}
                     description={this.state.description}
-                    // icon={this.state.icon}
+                    icon={this.state.icon}
+                    temperature={this.state.temperature}
+                    humidity={this.state.humidity}
+                    speed={this.state.speed}
                     error={this.state.error}
                   />
                 </div>
