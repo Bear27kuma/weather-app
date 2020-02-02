@@ -23,9 +23,21 @@ class App extends React.Component {
     const country = e.target.elements.country.value;
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`);
     const data = await api_call.json();
-    const iconcode = data.weather[0].icon;
-    const iconUrl = `http://openweathermap.org/img/wn/${iconcode}@2x.png`;
-    if (city && country) {
+
+    if (data.message) {
+      this.setState({
+        city: undefined,
+        country: undefined,
+        description: undefined,
+        icon: undefined,
+        temperature: undefined,
+        humidity: undefined,
+        speed: undefined,
+        error: "City not found."
+      });
+    }else if (data) {
+      const iconcode = data.weather[0].icon;
+      const iconUrl = `http://openweathermap.org/img/wn/${iconcode}@2x.png`;
       this.setState({
         city: data.name,
         country: data.sys.country,
@@ -57,10 +69,10 @@ class App extends React.Component {
           <div className="main">
             <div className="container">
               <div className="row">
-                <div className="col-5 title-container">
+                <div className="col-xs-12 col-md-5 title-container">
                   <Titles />
                 </div>
-                <div className="col-7 form-container">
+                <div className="col-xs-12 col-md-7 form-container">
                   <Form getWeather={this.getWeather} />
                   <Weather
                     city={this.state.city}
