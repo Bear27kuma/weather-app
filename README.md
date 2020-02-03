@@ -3,6 +3,12 @@
 Quickly find out the current weather, anywhere in the world...
 世界中のどこでも、すばやく現在の気象情報を探し出します。
 
+<br/>
+<br/>
+---
+![screenshot](/src/img/screenshot.png)
+
+
 ## Features
 
 Reactベースで作成されているため、検索時の画面の推移などがなく、スムーズに気象情報の検索が可能。
