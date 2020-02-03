@@ -6,7 +6,7 @@ Quickly find out the current weather, anywhere in the world...
 <br/>
 <br/>
 ---
-![screenshot](/src/img/screenshot.png)
+<img width="1680" alt="screenshot" src="https://user-images.githubusercontent.com/39920490/73659960-9bdd2e00-46da-11ea-8b1f-6fc896b50ed5.png">
 
 
 ## Features
