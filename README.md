@@ -4,7 +4,6 @@ Quickly find out the current weather, anywhere in the world...
 世界中のどこでも、すばやく現在の気象情報を探し出します。
 
 <br/>
-<br/>
 
 <img width="840" alt="screenshot" src="https://user-images.githubusercontent.com/39920490/73659960-9bdd2e00-46da-11ea-8b1f-6fc896b50ed5.png">
 
