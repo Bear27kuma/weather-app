@@ -11,6 +11,7 @@
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.1"
   },
+  "homepage": "https://github.com/Bear27kuma/weather-app/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
