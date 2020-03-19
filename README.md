@@ -21,4 +21,4 @@ City（都市）、Country（国）の検索窓に任意の場所を入力し、
 ## Author
 
 * 氏名：大熊悠太<br />
-* Email：yeuatral-1129@i.softbank.jp
+* Email：y.dream.nest@icloud.com
